@@ -1,6 +1,6 @@
 FROM python:3.6
 LABEL maintaner="Henry Huang <henryhuang1213@gmail.com>"
-COPY moqizhai /moqizhai/
+COPY . /moqizhai/
 WORKDIR /moqizhai
 RUN pip install pipenv \
 	&& pipenv install 

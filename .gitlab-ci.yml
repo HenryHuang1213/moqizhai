@@ -1,0 +1,19 @@
+stages:
+    - build
+    - deploy
+
+job1:
+    stage: build
+    tags:
+        - test
+    script:
+        - git clone git@34.94.219.94:moqizhai/web.git
+        - docker image rm web
+        - docker build -t web ~/web/
+
+job2:
+    stage: deploy
+    tags:
+        - test
+    script: 
+        - docker run -d -p 8000:8000 --link mysql2 --name moqizhaitest web
